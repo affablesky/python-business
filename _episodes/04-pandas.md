@@ -324,7 +324,7 @@ Very important, the `.drop()` will not change anything in the original DataFrame
 > ## Challenge  
 >
 > Create an column in the `soda` dataframe that shows the profit margin ((price-cost)/cost) of each soda.      
->  
+> ##this formula is for markup, profit margin is  ((price-cost)/price)
 >> ## Solution
 >> ```
 >> soda['Profit_Margin'] = (soda['Bottle_Retail_Price'] - soda['Bottle_Cost']) / soda['Bottle_Cost']
@@ -410,8 +410,9 @@ Let's go back to our data. We have two DataFrames, `soda` and `invoice`. In the 
 > Not all kinds of soda will appear in the invoice (some were never sold). If we want to keep everything in the `soda` dataframe, what kinds of join should we use?
 >
 >> ## Solution
+>> ## becaause we want to keep everything from soda, that should be the main table we are joining to
 >> ```
->> inv_soda = inv.merge(soda, how="left", right_on="Item_id", left_on="Item_id")  
+>> inv_soda = soda.merge(inv, how="left", right_on="Item_id", left_on="Item_id")  
 >> ```
 >>  
 > {: .solution}
